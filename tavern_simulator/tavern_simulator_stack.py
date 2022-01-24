@@ -10,7 +10,9 @@ class TavernSimulatorStack(Stack):
         super().__init__(scope, construct_id, **kwargs)
 
         tavern_lambda = _lambda.Function(
-            self, 'tavern',
+            self,
+            id="Tavern",
+            function_name='tavern',
             runtime=_lambda.Runtime.PYTHON_3_7,
             code=_lambda.Code.from_asset('src/tavern'),
             handler='app.handler',
