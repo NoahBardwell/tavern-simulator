@@ -26,11 +26,25 @@ class TavernSimulatorStack(Stack):
             user_pool_name="tavern-user-pool",
             removal_policy=cdk.RemovalPolicy.DESTROY
         )
+        
+        tavern_scope = _cognito.ResourceServerScope(scope_name="tavern_scope", scope_description="Tavern scope used to get auth token")
+        
+        tavern_resource_server = user_pool.add_resource_server(
+            id="TavernResourceServer",
+            identifier="tavern_resource_server",
+            scopes=[tavern_scope]
+        )
 
         user_pool.add_client(
             id="TavernClient",
             user_pool_client_name="tavern-client",
             generate_secret=True,
+            o_auth=_cognito.OAuthSettings(
+                scopes=[_cognito.OAuthScope.resource_server(tavern_resource_server, tavern_scope)],
+                flows=_cognito.OAuthFlows(
+                    client_credentials=True
+                )
+            )
         )
 
         user_pool.add_domain(
@@ -65,8 +79,10 @@ class TavernSimulatorStack(Stack):
                 access_log_destination=_apigateway.LogGroupLogDestination(tavern_api_access_logs)
             )
         )
+
         items = tavern_api.root.add_resource("tavern-items")
         item = items.add_resource("{items}")
+        
         item.add_method(
             http_method="GET",
             authorizer=auth,
