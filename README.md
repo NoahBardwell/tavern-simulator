@@ -9,16 +9,14 @@ Navigate to the src folder
 $ python -m unittest discover
 ```
 
-## Activating the virtual environment and synthing the app
+## Create and activate the virtual environment and synthing the app
 
 ```
-$ source .venv/bin/activate
+virtualenv venv
 ```
-
-If you are a Windows platform, you would activate the virtualenv like this:
-
+# Activaite the virtual environment
 ```
-% .venv\Scripts\activate.bat
+$ source.bat
 ```
 
 Once the virtualenv is activated, you can install the required dependencies.
