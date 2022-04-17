@@ -1,0 +1,29 @@
+{
+    "configurations": [{
+            "name": "Python: Current File",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal"
+        },
+        {
+            "type": "aws-sam",
+            "request": "direct-invoke",
+            "name": "tavern:app.handler (python3.9)",
+            "invokeTarget": {
+                "target": "code",
+                "projectRoot": "${workspaceFolder}/src/tavern",
+                "lambdaHandler": "app.handler"
+            },
+            "lambda": {
+                "runtime": "python3.9",
+                "payload": {
+                    "json": {
+                        "test": "test"
+                    }
+                },
+                "environmentVariables": {}
+            }
+        }
+    ]
+}

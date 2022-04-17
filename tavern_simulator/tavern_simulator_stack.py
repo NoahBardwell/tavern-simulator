@@ -15,7 +15,7 @@ class TavernSimulatorStack(Stack):
             self,
             id="Tavern",
             function_name='tavern',
-            runtime=_lambda.Runtime.PYTHON_3_7,
+            runtime=_lambda.Runtime.PYTHON_3_9,
             code=_lambda.Code.from_asset('src/tavern'),
             handler='app.handler',
         )
