@@ -16,11 +16,13 @@ class Item(BaseModel):
     def quality_check(cls, value):
         if value < 0:
             raise ValueError("quality cannot be negative.")
+        return value
             
     @validator('name')
     def set_flags(cls, value):
         if "aged" in value.lower():
             cls.aged = True
+        return value
 
     def update(cls):
         if cls.maxed is True:
