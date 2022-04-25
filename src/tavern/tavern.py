@@ -1,6 +1,6 @@
 from pydantic import BaseModel
 from typing import List
-from item import Item
+from tavern.item import Item
 
 
 class Tavern(BaseModel):
