@@ -8,13 +8,21 @@ Navigate to the src folder
 ```
 $ python -m unittest discover
 ```
+# Install awscli
+```
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
+```
 
 ## Create and activate the virtual environment and synthing the app
 
 ```
 virtualenv venv
 ```
-# Activaite the virtual environment
+# Activate the virtual environment with
+```
+$ source.bat
+```
+or 
 ```
 $ source.bat
 ```

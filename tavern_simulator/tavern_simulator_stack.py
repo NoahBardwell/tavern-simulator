@@ -1,10 +1,10 @@
-import aws_cdk.core as cdk
-from aws_cdk.core import Stack
+import aws_cdk as cdk
+from aws_cdk import Stack
 from constructs import Construct
-import aws_cdk.aws_apigateway as _apigateway
-import aws_cdk.aws_cognito as _cognito
-import aws_cdk.aws_lambda as _lambda
-import aws_cdk.aws_logs as _logs
+from aws_cdk import aws_apigateway as _apigateway
+from aws_cdk import aws_cognito as _cognito
+from aws_cdk import aws_lambda as _lambda
+from aws_cdk import aws_logs as _logs
 
 class TavernSimulatorStack(Stack):
 
