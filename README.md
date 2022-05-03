@@ -33,13 +33,13 @@ At this point you can now synthesize the CloudFormation template for this code.
 $ cdk synth
 ```
 
-## To cdk stack infrastructure tests
-Navigate to the src folder
+## Cdk stack infrastructure tests
+Navigate to top project directory
 ```
 $ python -m unittest
 ```
 
-## To run lambda unit tests
+## Run lambda unit tests
 Navigate to the src folder
 ```
 $ python -m unittest
