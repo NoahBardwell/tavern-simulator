@@ -1,7 +1,7 @@
 
 # Come warm yourself by the hearth!
 
-This is a project I am creating to practice.
+This is a project I am creating to practice using cdk version 2 and creating a project structure that enables easy development with aws.
 
 # Install awscli
 ```
@@ -20,7 +20,7 @@ $ source.bat
 ```
 or 
 ```
-$ source.bat
+$ source venv/bin/activate
 ```
 
 Once the virtualenv is activated, you can install the required dependencies.
