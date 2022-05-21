@@ -1,6 +1,7 @@
 from pydantic import BaseModel, validator, constr
 from typing import Optional
 
+
 class Item(BaseModel):
     name: constr(min_length=1)
     sell_in: int
@@ -17,7 +18,7 @@ class Item(BaseModel):
         if value < 0:
             raise ValueError("quality cannot be negative.")
         return value
-            
+
     @validator('name')
     def set_flags(cls, value):
         if "aged" in value.lower():
@@ -27,21 +28,21 @@ class Item(BaseModel):
     def update(cls):
         if cls.maxed is True:
             return
-        
+
         if cls.bottomed is True:
             return
-        
+
         cls.sell_in -= 1
-        
+
         if cls.quality == 0:
             return
-        
+
         if cls.backstage_passes is True:
             cls.update_backstage_passes()
-        
+
         if cls.conjured is True:
             cls.update_conjured()
-        
+
         if cls.aged is True:
             cls.update_aged()
 
@@ -50,10 +51,10 @@ class Item(BaseModel):
 
     def update_conjured(cls):
         return True
-    
+
     def update_backstage_passes(cls):
         return True
-    
+
     def update_aged(cls):
         if cls.sell_in < 0:
             if cls.quality + 4 >= 50:
@@ -66,6 +67,6 @@ class Item(BaseModel):
             if cls.quality + 2 >= 50:
                 cls.quality = 50
                 cls.maxed = True
-                return 
+                return
             elif cls.quality + 2 < 50:
                 cls.quality += 2

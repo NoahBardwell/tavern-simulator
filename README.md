@@ -1,9 +1,11 @@
 
 # Come warm yourself by the hearth!
 
-This is a project I am creating to practice using cdk version 2 and creating a project structure that enables easy development with aws.
+This is a project I am creating to work on building the ideal aws template.
 
-# Install awscli
+Auth Cognito -> ApiGateway (Payload) -> AWS Lambda
+
+## Install awscli
 ```
 https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 ```
@@ -14,7 +16,7 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 virtualenv venv
 
 ```
-# Activate the virtual environment with
+## Activate the virtual environment with
 ```
 $ source.bat
 ```
@@ -33,14 +35,21 @@ At this point you can now synthesize the CloudFormation template for this code.
 $ cdk synth
 ```
 
-## Cdk stack infrastructure tests
+## Tests
+
+### Cdk stack infrastructure tests
 Navigate to top project directory
 ```
-$ python -m unittest
+$ coverage run -m unittest discover
 ```
 
-## Run lambda unit tests
+### Run lambda unit tests
 Navigate to the src folder
 ```
-$ python -m unittest
+$ coverage run -m unittest discover
+```
+
+### Test coverage report in either location
+```
+$ coverage run -m unittest discover
 ```

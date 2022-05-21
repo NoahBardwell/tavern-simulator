@@ -4,6 +4,7 @@ import aws_cdk.assertions as assertions
 
 from tavern_simulator.tavern_simulator_stack import TavernSimulatorStack
 
+
 class TavernStackTest(unittest.TestCase):
 
     def test_lambda_created(self):
@@ -18,4 +19,3 @@ class TavernStackTest(unittest.TestCase):
                 "Runtime": "python3.9",
             },
         )
-

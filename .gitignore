@@ -8,3 +8,5 @@ venv
 # CDK asset staging directory
 .cdk.staging
 cdk.out
+.coverage
+.vscode

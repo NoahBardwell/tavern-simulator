@@ -3,7 +3,7 @@ from typing import List
 from tavern.item import Item
 
 
-class Tavern(BaseModel):
+class Inventory(BaseModel):
     items: List[Item]
 
     def update(cls):

@@ -1,2 +1,4 @@
 pydantic==1.9.0
+flake8==3.9.2
+coverage==6.3.3
 -r requirements.txt
