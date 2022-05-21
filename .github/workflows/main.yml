@@ -43,20 +43,25 @@ jobs:
 
       - name: Package Lambdas
         run: |
-          pwd
+          cd ..
           for lambda in src
           do
             pwd
             cd
+            pwd
             pip install -r requirements.txt
           done
         working-directory: ${{ github.workspace }}
       
       - name: Run Lambda Unit Tests
         run: |
+          pwd
+          cd ..
+          cd src
+          pwd
           coverage run -m unittest discover
           coverage report
-        working-directory: ${{ github.workspace }}/src
+        working-directory: ${{ github.workspace }}
 
       - name: cdk synth
         uses: youyo/aws-cdk-github-actions@v2
