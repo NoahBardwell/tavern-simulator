@@ -47,6 +47,7 @@ jobs:
           for lambda in src
           do
             pwd
+            cd
             pip install -r requirements.txt
           done
         working-directory: ${{ github.workspace }}
