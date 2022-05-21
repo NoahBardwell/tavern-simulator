@@ -43,7 +43,9 @@ jobs:
 
       - name: Package Lambdas
         run: |
+          pwd
           cd ..
+          cd src
           for lambda in src
           do
             pwd
