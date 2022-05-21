@@ -1,10 +1,11 @@
-import aws_cdk.core as cdk
-from aws_cdk.core import Stack
+import aws_cdk as cdk
+from aws_cdk import Stack
 from constructs import Construct
-import aws_cdk.aws_apigateway as _apigateway
-import aws_cdk.aws_cognito as _cognito
-import aws_cdk.aws_lambda as _lambda
-import aws_cdk.aws_logs as _logs
+from aws_cdk import aws_apigateway as _apigateway
+from aws_cdk import aws_cognito as _cognito
+from aws_cdk import aws_lambda as _lambda
+from aws_cdk import aws_logs as _logs
+
 
 class TavernSimulatorStack(Stack):
 
@@ -26,9 +27,9 @@ class TavernSimulatorStack(Stack):
             user_pool_name="tavern-user-pool",
             removal_policy=cdk.RemovalPolicy.DESTROY
         )
-        
+
         tavern_scope = _cognito.ResourceServerScope(scope_name="tavern_scope", scope_description="Tavern scope used to get auth token")
-        
+
         tavern_resource_server = user_pool.add_resource_server(
             id="TavernResourceServer",
             identifier="tavern_resource_server",
@@ -68,7 +69,7 @@ class TavernSimulatorStack(Stack):
             log_group_name="tavern-api-access-logs",
             retention=_logs.RetentionDays.ONE_MONTH
         )
-        
+
         tavern_api = _apigateway.LambdaRestApi(
             self,
             id="TavernApi",
@@ -82,7 +83,7 @@ class TavernSimulatorStack(Stack):
 
         items = tavern_api.root.add_resource("tavern-items")
         item = items.add_resource("{items}")
-        
+
         item.add_method(
             http_method="GET",
             authorizer=auth,

@@ -1,6 +1,7 @@
 from pydantic import BaseModel, validator, constr
 from typing import Optional
 
+
 class Item(BaseModel):
     name: constr(min_length=1)
     sell_in: int
@@ -13,57 +14,59 @@ class Item(BaseModel):
     bottomed: Optional[bool] = False
 
     @validator('quality')
-    def quality_check(self, value):
+    def quality_check(cls, value):
         if value < 0:
             raise ValueError("quality cannot be negative.")
-            
+        return value
+
     @validator('name')
-    def set_flags(self, value):
+    def set_flags(cls, value):
         if "aged" in value.lower():
-            self.aged = True
+            cls.aged = True
+        return value
 
-    def update(self):
-        if self.maxed is True:
+    def update(cls):
+        if cls.maxed is True:
             return
-        
-        if self.bottomed is True:
-            return
-        
-        self.sell_in -= 1
-        
-        if self.quality == 0:
-            return
-        
-        if self.backstage_passes is True:
-            self.update_backstage_passes()
-        
-        if self.conjured is True:
-            self.update_conjured()
-        
-        if self.aged is True:
-            self.update_aged()
 
-        if self.sell_in > 0:
-            self.sell_in = self.sell_in - 1
+        if cls.bottomed is True:
+            return
 
-    def update_conjured(self):
+        cls.sell_in -= 1
+
+        if cls.quality == 0:
+            return
+
+        if cls.backstage_passes is True:
+            cls.update_backstage_passes()
+
+        if cls.conjured is True:
+            cls.update_conjured()
+
+        if cls.aged is True:
+            cls.update_aged()
+
+        if cls.sell_in > 0:
+            cls.sell_in = cls.sell_in - 1
+
+    def update_conjured(cls):
         return True
-    
-    def update_backstage_passes(self):
+
+    def update_backstage_passes(cls):
         return True
-    
-    def update_aged(self):
-        if self.sell_in < 0:
-            if self.quality + 4 >= 50:
-                self.quality = 50
-                self.maxed = True
+
+    def update_aged(cls):
+        if cls.sell_in < 0:
+            if cls.quality + 4 >= 50:
+                cls.quality = 50
+                cls.maxed = True
                 return
-            elif self.quality + 4 < 50:
-                self.quality += 4
+            elif cls.quality + 4 < 50:
+                cls.quality += 4
         else:
-            if self.quality + 2 >= 50:
-                self.quality = 50
-                self.maxed = True
-                return 
-            elif self.quality + 2 < 50:
-                self.quality += 2
+            if cls.quality + 2 >= 50:
+                cls.quality = 50
+                cls.maxed = True
+                return
+            elif cls.quality + 2 < 50:
+                cls.quality += 2

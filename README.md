@@ -1,32 +1,55 @@
 
 # Come warm yourself by the hearth!
 
-This is a project I am creating to practice.
+This is a project I am creating to work on building the ideal aws template.
 
-## To run lambda unit tests
-Navigate to the src folder
+Auth Cognito -> ApiGateway (Payload) -> AWS Lambda
+
+## Install awscli
 ```
-$ python -m unittest discover
+https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 ```
 
 ## Create and activate the virtual environment and synthing the app
 
 ```
 virtualenv venv
+
 ```
-# Activaite the virtual environment
+## Activate the virtual environment with
 ```
 $ source.bat
 ```
+or 
+```
+$ source venv/bin/activate
+```
 
 Once the virtualenv is activated, you can install the required dependencies.
-
 ```
-$ pip install -r requirements.txt
+$ pip install -r requirements-dev.txt
 ```
 
 At this point you can now synthesize the CloudFormation template for this code.
-
 ```
 $ cdk synth
+```
+
+## Tests
+
+### Cdk stack infrastructure tests
+Navigate to top project directory
+```
+$ coverage run -m unittest discover
+```
+
+### Run lambda unit tests
+Navigate to the src folder
+```
+$ coverage run -m unittest discover
+```
+
+### Test coverage report in either location
+```
+$ coverage run -m unittest discover
 ```
