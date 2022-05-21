@@ -46,14 +46,14 @@ jobs:
           for lambda in src
           do
             pwd
-            cd
-            pwd
+            echo "lambda"
             pip install -r requirements.txt
           done
         working-directory: ${{ github.workspace }}
       
       - name: Run Lambda Unit Tests
         run: |
+          cd src
           coverage run -m unittest discover
           coverage report
         working-directory: ${{ github.workspace }}
