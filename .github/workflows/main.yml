@@ -45,8 +45,6 @@ jobs:
         run: |
           for lambda in src
           do
-            pwd
-            echo "lambda"
             pip install -r requirements.txt
           done
         working-directory: ${{ github.workspace }}
