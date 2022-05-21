@@ -43,9 +43,10 @@ jobs:
 
       - name: Package Lambdas
         run: |
+          pwd
           for lambda in src
-          echo "$PWD"
           do
+            pwd
             cd
             pip install -r requirements.txt
           done
