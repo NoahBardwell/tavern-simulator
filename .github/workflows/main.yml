@@ -44,7 +44,7 @@ jobs:
       - name: Package Lambdas
         run: |
           pwd
-          cd ..
+          ls
           cd src
           for lambda in src
           do
@@ -58,7 +58,6 @@ jobs:
       - name: Run Lambda Unit Tests
         run: |
           pwd
-          cd ..
           cd src
           pwd
           coverage run -m unittest discover
