@@ -66,7 +66,6 @@ jobs:
           AWS_DEFAULT_REGION: 'us-east-1'
 
       - name: cfn-lint-action
-        uses: ScottBrenner/cfn-lint-action@v2.2.3
         run: |
           cfn-lint --version
           cfn-lint -t cdk.out**/*template.json --info
