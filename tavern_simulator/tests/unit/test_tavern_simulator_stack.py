@@ -2,7 +2,7 @@ import unittest
 import aws_cdk as core
 import aws_cdk.assertions as assertions
 
-from tavern_simulator.tavern_simulator_stack import TavernSimulatorStack
+from tavern_simulator_stack import TavernSimulatorStack
 
 
 class TavernStackTest(unittest.TestCase):
