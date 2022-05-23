@@ -1,2 +1,1 @@
-pydantic
-pytest
+pydantic==1.9.0
