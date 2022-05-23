@@ -56,11 +56,13 @@ jobs:
 
       - name: Package Lambdas
         run: |
+          pwd
           for lambda in src
           do
+            pwd
             pip install -r requirements.txt
           done
-        working-directory: ${{ github.workspace }}
+        working-directory: ${{ github.workspace }}/src
       
       - name: Run Lambda Unit Tests
         run: |
@@ -72,9 +74,6 @@ jobs:
       - name: CDK Synth
         run: cdk synth
 
-      - name: CDK Deploy
-        run: cdk deploy
-
       - name: cfn-lint-action
         run: |
           cfn-lint --version
@@ -84,4 +83,6 @@ jobs:
         uses: stelligent/cfn_nag@master
         with:
           input_path: cdk.out
-     
+      
+      - name: CDK Deploy
+        run: cdk deploy
