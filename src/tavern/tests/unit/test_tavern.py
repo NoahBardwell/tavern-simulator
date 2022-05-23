@@ -1,6 +1,6 @@
 import unittest
-from tavern.item import Item
-from tavern.inventory import Inventory
+from item import Item
+from inventory import Inventory
 
 
 class TavernTest(unittest.TestCase):
