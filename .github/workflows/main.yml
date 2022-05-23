@@ -72,8 +72,8 @@ jobs:
 
       - name: cfn-lint-action
         run: |
-          cfn-lint --version
-          cfn-lint -t cdk.out**/*template.json --info
+          cfn-lint --version 
+          cfn-lint -t cdk.out**/*template.json --info --ignore-checks W3005
 
       - name: cfn_nag scan
         uses: stelligent/cfn_nag@master
