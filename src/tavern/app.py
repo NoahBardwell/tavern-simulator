@@ -1,5 +1,5 @@
 import logging
-import json
+import simplejson as json
 
 from inventory import Inventory
 from item import Item
