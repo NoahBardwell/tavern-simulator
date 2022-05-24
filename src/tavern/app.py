@@ -13,13 +13,14 @@ def handler(event, context):
     item = Item.parse_obj(get_input_dict())
     logger.info(item.dict())
     inventory = Inventory.parse_obj({"items": [item.dict()]})
+    inventory.update()
     logger.info(inventory)
     return {
         'statusCode': 200,
         'headers': {
             'Content-Type': 'text/plain'
         },
-        'body': 'Hello there!'
+        'body': inventory.dict()
     }
 
 
