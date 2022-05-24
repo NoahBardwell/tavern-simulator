@@ -61,7 +61,7 @@ jobs:
         working-directory: ${{ github.workspace }}
       
       - name: CDK Synth
-        run: cdk synth --require-approval False
+        run: cdk synth
 
       - name: cfn-lint-action
         run: |
@@ -74,4 +74,4 @@ jobs:
           input_path: cdk.out
       
       - name: CDK Deploy
-        run: cdk deploy
+        run: cdk deploy --require-approval never
