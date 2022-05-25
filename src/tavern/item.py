@@ -19,10 +19,10 @@ class Item(BaseModel):
             raise ValueError("quality cannot be negative.")
         return value
 
-    @validator('name')
-    def set_flags(cls, value):
-        if "aged" in value.lower():
-            cls.aged = True
+    @validator('aged', always=True)
+    def set_flags(cls, value, values):
+        if "aged" in values.get("name").lower():
+            value = True
         return value
 
     def update(cls):
@@ -31,8 +31,6 @@ class Item(BaseModel):
 
         if cls.bottomed is True:
             return
-
-        cls.sell_in -= 1
 
         if cls.quality == 0:
             return

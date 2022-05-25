@@ -85,7 +85,7 @@ class TavernSimulatorStack(Stack):
         item = items.add_resource("{items}")
 
         item.add_method(
-            http_method="GET",
+            http_method="POST",
             authorizer=auth,
             authorization_type=_apigateway.AuthorizationType.COGNITO
         )

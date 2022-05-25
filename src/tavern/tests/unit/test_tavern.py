@@ -9,8 +9,10 @@ class TavernTest(unittest.TestCase):
         item = Item.parse_obj(self.get_input_dict())
         print(item.dict())
         inventory = Inventory.parse_obj({"items": [item.dict()]})
+        inventory.update()
         print(inventory)
-        self.assertEqual(1, 1)
+        self.assertEqual(inventory.items[0].sell_in, 2)
+        self.assertEqual(inventory.items[0].quality, 7)
 
     def get_input_dict(self):
         return {"name": "Aged Cheese", "quality": 5, "sell_in": 3}

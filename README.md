@@ -25,31 +25,25 @@ or
 $ source venv/bin/activate
 ```
 
-Once the virtualenv is activated, you can install the required dependencies.
+Once the virtualenv is activated, install the required dependencies.
 ```
 $ pip install -r requirements-dev.txt
 ```
 
-At this point you can now synthesize the CloudFormation template for this code.
+Synthesize the CloudFormation template for this code.
 ```
 $ cdk synth
 ```
 
 ## Tests
 
-### Cdk stack infrastructure tests
+### Run tests
 Navigate to top project directory
 ```
 $ coverage run -m unittest discover
 ```
 
-### Run lambda unit tests
-Navigate to the src folder
+### Test coverage report
 ```
-$ coverage run -m unittest discover
-```
-
-### Test coverage report in either location
-```
-$ coverage run -m unittest discover
+$ coverage report
 ```

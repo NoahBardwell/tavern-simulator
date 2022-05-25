@@ -3,4 +3,5 @@ flake8==3.9.2
 coverage==6.3.3
 cfn-lint==0.60.1
 coverage==6.3.3
+simplejson==3.17.6
 -r requirements.txt

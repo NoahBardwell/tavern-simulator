@@ -74,4 +74,4 @@ jobs:
           input_path: cdk.out
       
       - name: CDK Deploy
-        run: cdk deploy
+        run: cdk deploy --require-approval never
